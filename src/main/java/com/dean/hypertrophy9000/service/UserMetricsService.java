@@ -30,13 +30,13 @@ public interface UserMetricsService {
     }
 
     // Standard method
-    default double calculateTDEE(User user){
+    default double calculateTDEE(User user) {
         double bmr = calculateBMR(user);
         double activityMultiplier = user.getActivityLevel().getMultiplier();
         return bmr * activityMultiplier;
     }
 
-    default Map<String, Double> calculateAdvisedCalories(User user){
+    default Map<String, Double> calculateAdvisedCalories(User user) {
         double tdee = calculateBMR(user) * user.getActivityLevel().getMultiplier();
 
         Map<String, Double> calories = new HashMap<>();
@@ -48,9 +48,28 @@ public interface UserMetricsService {
         return calories;
     }
 
+    default double calculateBodyFatPercentage(User user) {
+        double neck = user.getNeckSizeCm();
+        double waist = user.getWaistSizeCm();
+        double hip = user.getHipSizeCm();
+        double height = user.getHeightCm();
+        double bfPercentage;
 
+        if (user.getSex() == Sex.FEMALE) {
+            double value = waist + hip - neck;
+            if (value <= 0 || height <= 0) return -1; // Invalid input
+            bfPercentage = 163.205 * Math.log10(value)
+                    - 97.684 * Math.log10(height)
+                    - 78.387;
+        } else {
+            double value = waist - neck;
+            if (value <= 0 || height <= 0) return -1; // Invalid input
+            bfPercentage = 86.010 * Math.log10(value)
+                    - 70.041 * Math.log10(height)
+                    + 36.76;
+        }
 
-
-
+        return Math.round(bfPercentage * 100.0) / 100.0;
+    }
 
 }
