@@ -1,0 +1,99 @@
+.
+├── Dockerfile
+├── mvnw
+├── mvnw.cmd
+├── pom.xml
+├── project_structure.txt
+├── README.md
+├── src
+│   ├── main
+│   │   ├── java
+│   │   │   └── com
+│   │   │       ├── dean
+│   │   │       │   └── hypertrophy9000
+│   │   │       │       ├── config
+│   │   │       │       ├── controller
+│   │   │       │       ├── MainApplication.java
+│   │   │       │       ├── model
+│   │   │       │       ├── repository
+│   │   │       │       └── service
+│   │   │       └── yourname
+│   │   └── resources
+│   │       ├── application.properties
+│   │       ├── static
+│   │       │   └── style.css
+│   │       └── templates
+│   └── test
+│       └── java
+│           └── com
+│               ├── dean
+│               │   └── hypertrophy9000
+│               │       └── SomeTest.java
+│               └── yourname
+└── target
+    ├── classes
+    │   ├── application.properties
+    │   ├── com
+    │   │   └── dean
+    │   │       └── hypertrophy9000
+    │   │           ├── controller
+    │   │           │   ├── ProfileController.class
+    │   │           │   ├── ProgressController.class
+    │   │           │   ├── RoutineController.class
+    │   │           │   └── RoutineViewController.class
+    │   │           ├── dto
+    │   │           │   ├── ExerciseDTO.class
+    │   │           │   ├── RoutineDayDTO.class
+    │   │           │   ├── RoutineExerciseDTO.class
+    │   │           │   └── WorkoutRoutineDTO.class
+    │   │           ├── MainApplication.class
+    │   │           ├── mapper
+    │   │           │   └── WorkoutRoutineMapper.class
+    │   │           ├── model
+    │   │           │   ├── Exercise.class
+    │   │           │   ├── ExerciseVariant.class
+    │   │           │   ├── Gender.class
+    │   │           │   ├── ImperialProfile.class
+    │   │           │   ├── MeasurementEntry.class
+    │   │           │   ├── MetricProfile.class
+    │   │           │   ├── RoutineDay.class
+    │   │           │   ├── RoutineExercise.class
+    │   │           │   ├── UnitSystem.class
+    │   │           │   ├── UserProfile.class
+    │   │           │   └── WorkoutRoutine.class
+    │   │           ├── repository
+    │   │           │   ├── ExerciseRepository.class
+    │   │           │   ├── MeasurementEntryRepository.class
+    │   │           │   ├── UserProfileRepository.class
+    │   │           │   └── WorkoutRoutineRepository.class
+    │   │           └── service
+    │   │               ├── Calculable.class
+    │   │               ├── engine
+    │   │               │   ├── CalculationEngine.class
+    │   │               │   ├── HypertrophyCalculator.class
+    │   │               │   ├── ProfileEngine.class
+    │   │               │   ├── ProgressEngine.class
+    │   │               │   ├── RoutineEngine.class
+    │   │               │   ├── StandardProfileService.class
+    │   │               │   ├── StandardProgressTracker.class
+    │   │               │   └── StandardRoutineBuilder.class
+    │   │               ├── ProfileService.class
+    │   │               ├── ProgressTrackingService.class
+    │   │               └── RoutineService.class
+    │   ├── static
+    │   │   ├── script.js
+    │   │   └── style.css
+    │   └── templates
+    │       ├── profile_form.html
+    │       └── routine.html
+    ├── generated-sources
+    │   └── annotations
+    ├── generated-test-sources
+    │   └── test-annotations
+    └── test-classes
+        └── com
+            └── dean
+                └── hypertrophy9000
+                    └── SomeTest.class
+
+44 directories, 53 files
