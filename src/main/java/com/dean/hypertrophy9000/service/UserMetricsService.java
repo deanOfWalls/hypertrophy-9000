@@ -72,4 +72,14 @@ public interface UserMetricsService {
         return Math.round(bfPercentage * 100.0) / 100.0;
     }
 
+    default double calculateFFMI(User user) {
+        double bodyFatPercentage = calculateBodyFatPercentage(user);
+        double bodyFatDecimal = bodyFatPercentage / 100.0;
+        double leanMassKg = user.getWeightKg() * (1 - bodyFatDecimal);
+        double heightM = user.getHeightCm() / 100;
+        double ffmi = leanMassKg / (heightM * heightM);
+
+        return Math.round(ffmi * 100.0) / 100.0;
+    }
+
 }
