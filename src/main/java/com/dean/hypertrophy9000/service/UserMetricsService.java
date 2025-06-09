@@ -1,7 +1,5 @@
 package com.dean.hypertrophy9000.service;
 
-import com.dean.hypertrophy9000.model.ActivityLevel;
-import com.dean.hypertrophy9000.model.CalorieGoal;
 import com.dean.hypertrophy9000.model.Sex;
 import com.dean.hypertrophy9000.model.User;
 
@@ -41,13 +39,14 @@ public interface UserMetricsService {
 
         Map<String, Double> calories = new HashMap<>();
         calories.put("Maintenance", tdee);
-        calories.put("Bulk (+250)", tdee + 250);
-        calories.put("Cut - 1lb/week", tdee - 500);
-        calories.put("Cut -2lb/week", tdee - 1000);
+        calories.put("Bulk (+250 calories)", tdee + 250);
+        calories.put("Cut -1 lb/week", tdee - 500);
+        calories.put("Cut -2 lb/week", tdee - 1000);
 
         return calories;
     }
 
+// U.S Navy formula
     default double calculateBodyFatPercentage(User user) {
         double neck = user.getNeckSizeCm();
         double waist = user.getWaistSizeCm();
@@ -72,6 +71,7 @@ public interface UserMetricsService {
         return Math.round(bfPercentage * 100.0) / 100.0;
     }
 
+    // Kouri formula
     default double calculateFFMI(User user) {
         double bodyFatPercentage = calculateBodyFatPercentage(user);
         double bodyFatDecimal = bodyFatPercentage / 100.0;
